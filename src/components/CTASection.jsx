@@ -27,7 +27,7 @@ export default function CTASection() {
         },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   // Parallax glow follow mouse
@@ -84,18 +84,22 @@ export default function CTASection() {
         <div className="relative z-10 flex flex-col gap-8 px-8 py-14 md:flex-row md:items-center md:justify-between md:px-16 md:py-20">
           {/* Left: text */}
           <div className="flex flex-col gap-4 md:max-w-xl">
-            <span className="w-fit rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-violet-400">
+            <span className="w-fit rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400">
               ¿Listo para comenzar?
             </span>
             <h2 className="text-[clamp(1.8rem,4.5vw,3.2rem)] font-black leading-[1.05] tracking-tighter text-white">
               Convertimos ideas audaces
               <br className="hidden sm:block" />
               en realidades digitales
-              <span className="text-transparent"
+              <span
+                className="text-transparent"
                 style={{
                   WebkitTextStroke: "1px rgba(139,92,246,0.8)",
                 }}
-              > poderosas.</span>
+              >
+                {" "}
+                poderosas.
+              </span>
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-zinc-400">
               Nuestro equipo está listo para llevar tu próximo proyecto al
@@ -108,10 +112,10 @@ export default function CTASection() {
           <div className="flex shrink-0 items-center">
             <Link
               href="#contact"
-              className="group relative flex items-center gap-3 overflow-hidden rounded-full border border-violet-500/40 bg-violet-600/20 px-8 py-4 text-sm font-semibold text-white shadow-[0_0_30px_rgba(139,92,246,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-violet-400/60 hover:bg-violet-600/30 hover:shadow-[0_0_50px_rgba(139,92,246,0.4)]"
+              className="group relative flex items-center gap-3 overflow-hidden rounded-full border border-indigo-500/40 bg-indigo-600/20 px-8 py-4 text-sm font-semibold text-white shadow-[0_0_30px_rgba(139,92,246,0.2)] backdrop-blur-xl transition-all duration-300 hover:border-indigo-400/60 hover:bg-indigo-600/30 hover:shadow-[0_0_50px_rgba(139,92,246,0.4)]"
             >
               {/* Shimmer */}
-              <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />
+              <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               <span>Trabajemos juntos</span>
               <svg
                 className="transition-transform duration-300 group-hover:translate-x-1"

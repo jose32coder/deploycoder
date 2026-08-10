@@ -8,11 +8,9 @@ export const Navbar = () => {
   const navRef = useRef(null);
   const items = ["Trabajos", "Servicios", "Nosotros", "Contacto"];
 
-
   // El estado inicial lo pone el HeroSection vía su master timeline.
   // useGSAP aquí solo sirve para el toggle del menú móvil.
   // (No disparamos animación de entrada propia — la coordina HeroSection)
-
 
   return (
     <nav
@@ -20,7 +18,7 @@ export const Navbar = () => {
       data-navbar
       className="pointer-events-none fixed inset-x-0 top-0 z-50 pt-4 sm:pt-6"
     >
-      <div className="mx-auto flex w-[94%] max-w-[1440px] items-center justify-between rounded-full border border-white/5 bg-black/20 px-6 py-3 backdrop-blur-md sm:px-8 sm:py-4">
+      <div className="mx-auto flex w-[94%] max-w-360 items-center justify-between rounded-full border border-white/5 bg-black/20 px-6 py-3 backdrop-blur-md sm:px-8 sm:py-4">
         {/* Logo */}
         <div className="pointer-events-auto text-xl font-bold tracking-[0.2em] text-white sm:text-2xl">
           <Link href="/" data-nav-logo className="nav-logo-text inline-block">
@@ -33,7 +31,7 @@ export const Navbar = () => {
           {items.map((item) => (
             <a
               key={item}
-              href="#"
+              href="/"
               className="nav-link text-sm font-medium tracking-wide text-zinc-400 transition-colors hover:text-white"
             >
               {item}

@@ -24,7 +24,7 @@ export default {
         },
         // Neon accents
         neon: {
-          cyan: "#00f0ff",
+          // cyan: "#ffffff",
           blue: "#0066ff",
           purple: "#a64dff",
         },

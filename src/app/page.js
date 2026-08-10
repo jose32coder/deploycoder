@@ -1,9 +1,12 @@
 "use client";
 import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
+import ServicesSection from "@/components/services/ServicesSection";
 import StackSection from "@/components/StackSection";
 import CTASection from "@/components/CTASection";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "@/components/contact/ContactSection";
+import { ProjectsSection } from "@/components/projects/ProjectsSection";
+import { DeploySection } from "@/components/marquee/DeploySection";
+import { TeamSection } from "@/components/team/TeamSection";
 
 export default function Home() {
   return (
@@ -16,7 +19,12 @@ export default function Home() {
 
       <div className="relative z-10 bg-[#09090b]">
         <StackSection />
+
+        <ProjectsSection />
         <CTASection />
+        <DeploySection>
+          <TeamSection />
+        </DeploySection>
         <ContactSection />
       </div>
     </main>

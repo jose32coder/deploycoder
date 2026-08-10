@@ -173,7 +173,7 @@ function ArcCarousel() {
   }, []);
 
   return (
-    <div className="relative h-[220px] w-full overflow-hidden md:h-[320px]">
+    <div className="relative h-55 w-full overflow-hidden md:h-80">
       <div
         ref={trackRef}
         // Ajustamos el bottom para que no esté tan enterrado
@@ -198,7 +198,7 @@ function ArcCarousel() {
                 <Icon
                   size={28}
                   color={tech.color}
-                  className="md:h-[34px]! md:w-[34px]!"
+                  className="md:h-8.5! md:w-8.5!"
                 />
               </div>
 

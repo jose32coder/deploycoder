@@ -2,6 +2,7 @@ import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import "../styles/effects.css";
 import RootLayoutClient from "./layout-client";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -25,9 +26,13 @@ export default function RootLayout({ children }) {
     <html
       lang="es"
       className={`${geistMono.variable} ${jakarta.variable} h-full antialiased dark`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-deep-dark-950 text-deep-dark-50 font-sans">
-        <RootLayoutClient>{children}</RootLayoutClient>
+        <RootLayoutClient>
+          <CustomCursor />
+          {children}
+        </RootLayoutClient>
       </body>
     </html>
   );

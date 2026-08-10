@@ -59,7 +59,7 @@ export const HeroSection = () => {
         {
           opacity: 1,
           duration: 0.15, // Un poco más lento cada letra
-          stagger: 0.15,  // Más espacio entre letras
+          stagger: 0.15, // Más espacio entre letras
           ease: "none",
         },
         0.4, // Un pequeño respiro inicial
@@ -240,7 +240,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bottom-[25%] z-10 flex items-center justify-center pointer-events-none md:bottom-0">
         <div
           ref={globeRef}
-          className="hero-globe-shell pointer-events-auto h-[100vmin] w-[100vmin] max-h-[850px] max-w-[850px] mix-blend-screen will-change-transform sm:h-[80vmin] sm:w-[80vmin]"
+          className="hero-globe-shell pointer-events-auto h-[100vmin] w-[100vmin] max-h-212.5 max-w-212.5 mix-blend-screen will-change-transform sm:h-[80vmin] sm:w-[80vmin]"
         >
           <ParticleGlobe />
         </div>
