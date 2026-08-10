@@ -53,7 +53,7 @@ export default function CTASection() {
     >
       <div
         ref={cardRef}
-        className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-white/[0.07] bg-[#0d0d10]"
+        className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-white/[0.07] bg-[#0d0d10]"
         style={{
           boxShadow:
             "0 0 80px 0 rgba(109,40,217,0.15), inset 0 0 60px 0 rgba(79,70,229,0.05)",

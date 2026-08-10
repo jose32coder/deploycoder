@@ -304,7 +304,7 @@ export default function Preloader({ onLoadingComplete }) {
     <div
       id="preloader"
       ref={preloaderRef}
-      className="fixed inset-0 z-[999] overflow-hidden bg-[#000000]"
+      className="fixed inset-0 z-999 overflow-hidden bg-[#000000]"
       aria-hidden
     >
       <div

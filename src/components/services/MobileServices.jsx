@@ -12,7 +12,10 @@ export function MobileServices({ services }) {
           Lo que hacemos
         </span>
         <h2 className="mt-2 text-4xl font-bold tracking-tighter text-white">
-          Nuestros Servicios
+          Nuestros <br />
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-200 to-zinc-500">
+            Servicios
+          </span>
         </h2>
         <p className="mt-3 text-zinc-400 text-sm">
           Desliza para explorar nuestras capacidades técnicas y estratégicas.

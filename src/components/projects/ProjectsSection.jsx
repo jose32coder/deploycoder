@@ -1,15 +1,45 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 import { projectsData } from "@/data/projectData";
 
+// Configuración para animar los items en cascada (stagger)
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Retraso de 0.15s entre cada tarjeta
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1], // Curva suave out-quint
+    },
+  },
+};
+
 export const ProjectsSection = () => {
   return (
-    <section className="relative w-full bg-[#09090b] text-white py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full bg-[#09090b] text-white py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="w-auto mx-auto">
-        {/* Encabezado inspirado en la imagen guía */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-6">
+        {/* ENCABEZADO ANIMADO */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-6"
+        >
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2 block">
               Portafolio
@@ -32,14 +62,22 @@ export const ProjectsSection = () => {
               <span className="ml-2">→</span>
             </Link>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Rejilla 2x2 de Proyectos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        {/* REJILLA DE PROYECTOS CON ENTRADA ESCALONADA */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
+        >
           {projectsData.slice(0, 4).map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <motion.div key={project.id} variants={cardVariants}>
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

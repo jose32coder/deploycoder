@@ -2,15 +2,39 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
-  const items = ["Trabajos", "Servicios", "Nosotros", "Contacto"];
+  const pathname = usePathname();
 
-  // El estado inicial lo pone el HeroSection vía su master timeline.
-  // useGSAP aquí solo sirve para el toggle del menú móvil.
-  // (No disparamos animación de entrada propia — la coordina HeroSection)
+  // Rutas directas para cada página/sección
+  const items = [
+    { label: "Trabajos", href: "/proyectos" },
+    { label: "Servicios", href: "/servicios" },
+    { label: "Nosotros", href: "/nosotros" },
+    { label: "Contacto", href: "/contacto" },
+  ];
+
+  // Si NO estamos en la Home ("/"), forzamos visibilidad inmediata del Navbar
+  useGSAP(() => {
+    if (pathname !== "/" && navRef.current) {
+      gsap.set(navRef.current, { opacity: 1, y: 0, visibility: "visible" });
+      gsap.set(
+        navRef.current.querySelectorAll(".nav-logo-text, .nav-link, .nav-cta"),
+        { opacity: 1, y: 0, visibility: "visible" },
+      );
+    }
+  }, [pathname]);
+
+  // Función para determinar si el link está activo
+  const isActive = (href) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   return (
     <nav
@@ -26,55 +50,77 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
+        {/* Menú Desktop */}
         <div className="pointer-events-auto hidden items-center gap-8 lg:flex">
-          {items.map((item) => (
-            <a
-              key={item}
-              href="/"
-              className="nav-link text-sm font-medium tracking-wide text-zinc-400 transition-colors hover:text-white"
-            >
-              {item}
-            </a>
-          ))}
+          {items.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`nav-link text-sm font-medium tracking-wide transition-colors ${
+                  active
+                    ? "text-white font-semibold"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Button Desktop */}
         <div className="nav-cta pointer-events-auto hidden items-center gap-4 lg:flex">
-          <button className="cursor-pointer rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-black">
+          <Link
+            href="/contacto"
+            className="cursor-pointer rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-black"
+          >
             Contáctanos
-          </button>
+          </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Hamburguesa Mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white lg:hidden"
+          aria-label="Abrir menú"
         >
           {isOpen ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Menú Mobile Dropdown */}
       <div
         className={`pointer-events-auto absolute inset-x-0 top-full mt-2 overflow-hidden px-4 transition-all duration-500 lg:hidden ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="flex flex-col gap-4 rounded-3xl border border-white/5 bg-black/80 p-6 backdrop-blur-xl">
-          {items.map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-lg font-medium text-zinc-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-          <button className="mt-2 rounded-full bg-white py-3 font-bold text-black">
+          {items.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`text-lg font-medium transition-colors ${
+                  active
+                    ? "text-white font-bold"
+                    : "text-zinc-300 hover:text-white"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <Link
+            href="/contacto"
+            onClick={() => setIsOpen(false)}
+            className="mt-2 text-center rounded-full bg-white py-3 font-bold text-black hover:bg-zinc-200 transition-colors"
+          >
             Despliega Tu Proyecto
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

@@ -10,6 +10,10 @@ export const projectsData = [
     year: "2026",
     description:
       "Plataforma SaaS para procesamiento masivo de marcas de agua en tiempo real con canvas de alto rendimiento.",
+    challenge:
+      "Procesar cientos de imágenes en alta resolución simultáneamente en el navegador sin bloquear el hilo principal ni degradar la experiencia de usuario.",
+    solution:
+      "Implementación de un motor de renderizado basado en HTML5 Canvas con Web Workers para procesar la exportación e imposición de marcas en segundo plano.",
   },
   {
     id: "2",
@@ -22,6 +26,10 @@ export const projectsData = [
     year: "2026",
     description:
       "Sistema de gestión y monitoreo agrícola para toma de decisiones en tiempo real.",
+    challenge:
+      "Garantizar la recolección y lectura de métricas de campo en zonas rurales sin cobertura o con conectividad intermitente a internet.",
+    solution:
+      "Arquitectura offline-first con almacenamiento local persistente y un sistema de sincronización en segundo plano al recuperar la conexión.",
   },
   {
     id: "3",
@@ -34,6 +42,10 @@ export const projectsData = [
     year: "2026",
     description:
       "Menú interactivo con bot de pedidos automatizados e integración a WhatsApp.",
+    challenge:
+      "Reducir la saturación en atención al cliente y agilizar la toma de pedidos en horas pico sin complicar el proceso para los usuarios.",
+    solution:
+      "Desarrollo de un menú web ligero que genera carritos interactivos y los transforma automáticamente en comandos formateados enviados directamente a WhatsApp.",
   },
   {
     id: "4",
@@ -46,5 +58,9 @@ export const projectsData = [
     year: "2026",
     description:
       "Arquitectura multi-tienda con pasarelas de pago integradas y panel administrativo.",
+    challenge:
+      "Manejar múltiples clientes en una sola base de código asegurando aislamiento estricto de datos y personalización por tienda.",
+    solution:
+      "Diseño de arquitectura multi-inquilino con aislamiento a nivel de base de datos, ruteo dinámico por subdominio y configuración global centralizada.",
   },
 ];

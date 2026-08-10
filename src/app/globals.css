@@ -34,14 +34,9 @@ body {
 }
 
 @media (pointer: fine) {
-  body,
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  [role="button"],
-  .interactive {
+  *,
+  *::before,
+  *::after {
     cursor: none !important;
   }
 }

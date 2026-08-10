@@ -146,13 +146,13 @@ export function CustomCursor() {
       {/* Puntito Central */}
       <div
         ref={dotRef}
-        className="pointer-events-none fixed top-0 left-0 z-50 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]"
+        className="pointer-events-none fixed top-0 left-0 z-9999 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]"
       />
 
       {/* Insignia / Rectángulo interactivo */}
       <div
         ref={followerRef}
-        className="pointer-events-none fixed top-0 left-0 z-50 flex items-center justify-between border select-none overflow-hidden -translate-x-1/2 -translate-y-1/2 px-3.5 transition-colors"
+        className="pointer-events-none fixed top-0 left-0 z-9999 flex items-center justify-between border select-none overflow-hidden -translate-x-1/2 -translate-y-1/2 px-3.5 transition-colors"
       >
         {isProjectBadge && (
           <div className="flex items-center justify-between w-full h-full">
@@ -161,7 +161,7 @@ export function CustomCursor() {
               {cursorText}
             </span>
 
-            {/* Cohete Inclinado apuntando a la esquina superior derecha */}
+            {/* Cohete Inclinado */}
             <div className="relative flex items-center justify-center ml-2 text-indigo-400">
               <svg
                 className="w-4 h-4 transform -rotate-12 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -172,7 +172,6 @@ export function CustomCursor() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                {/* Icono de Cohete */}
                 <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
                 <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-3.05 11a22.35 22.35 0 0 1-3.95 2z" />
                 <path d="M9 18c-4.51 2-5 3-7 3 0-2 1-2.5 3-7" />
