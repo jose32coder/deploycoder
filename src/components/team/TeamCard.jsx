@@ -35,12 +35,12 @@ export function TeamCard({ member }) {
           <img
             src={member.mediaUrl}
             alt={member.name}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className={`h-full w-full object-cover ${member.imagePosition || "object-center"} transition-transform duration-700`}
           />
         )}
 
         {/* Capa de degradado oscuro optimizada para legibilidad extrema */}
-        <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/80 via-30% to-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/20 via-50% to-black/20 pointer-events-none" />
       </div>
 
       {/* 2. Barra Superior (Pills de Estado) */}
@@ -58,9 +58,9 @@ export function TeamCard({ member }) {
 
         {/* Badge VERIFIED */}
         {member.verified && (
-          <div className="flex items-center gap-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 px-3 py-1 text-[11px] font-mono font-semibold text-emerald-400 backdrop-blur-md ml-auto">
+          <div className="flex items-center gap-1.5 rounded-full bg-zinc-500/20 border border-zinc-500/40 px-3 py-1 text-[11px] font-mono font-semibold text-white backdrop-blur-md ml-auto">
             <span>✓</span>
-            <span className="uppercase tracking-wider">VERIFIED</span>
+            <span className="uppercase tracking-wider">{member.role}</span>
           </div>
         )}
       </div>
@@ -73,12 +73,12 @@ export function TeamCard({ member }) {
             <h3 className="text-2xl font-bold text-white tracking-tight drop-shadow-md">
               {member.name}
             </h3>
-            <p className="text-xs font-mono text-indigo-400 uppercase tracking-wider mt-0.5">
+            <p className="text-xs font-mono text-indigo-400 uppercase font-semibold tracking-wider mt-0.5">
               • {member.role}
             </p>
           </div>
 
-          <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-widest">
+          <span className="text-[11px] font-mono text-zinc-200 font-semibold uppercase tracking-widest">
             {member.tagline}
           </span>
         </div>

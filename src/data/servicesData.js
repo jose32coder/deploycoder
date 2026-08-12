@@ -1,4 +1,4 @@
-export const SERVICES_DATA = [
+export const servicesData = [
   {
     id: "custom-software",
     number: "01",

@@ -45,7 +45,10 @@ export const ProjectsSection = () => {
               Portafolio
             </span>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tighter leading-none">
-              Proyectos <span className="text-gray-500">Destacados</span>
+              Proyectos{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-200 to-zinc-500">
+                Destacados
+              </span>
             </h2>
           </div>
 

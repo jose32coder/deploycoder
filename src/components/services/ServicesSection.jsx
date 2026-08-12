@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Estilos de Swiper
 import "swiper/css";
 import "swiper/css/pagination";
-import { SERVICES_DATA } from "@/data/servicesData";
+import { servicesData } from "@/data/servicesData";
 import { DesktopServices } from "./DesktopServices";
 import { MobileServices } from "./MobileServices";
 
@@ -46,7 +46,7 @@ export default function ServicesSection() {
         });
 
         // Revelado progresivo de las tarjetas al hacer scroll horizontal
-        SERVICES_DATA.forEach((_, i) => {
+        servicesData.forEach((_, i) => {
           gsap.fromTo(
             `.card-content-${i}`,
             { opacity: 0, y: 30, filter: "blur(8px)" },
@@ -74,10 +74,10 @@ export default function ServicesSection() {
   return (
     <div ref={sectionRef} className="w-full bg-[#09090b]">
       {/* Widget Mobile */}
-      <MobileServices services={SERVICES_DATA} />
+      <MobileServices services={servicesData} />
 
       {/* Widget Desktop */}
-      <DesktopServices services={SERVICES_DATA} pinRef={pinRef} />
+      <DesktopServices services={servicesData} pinRef={pinRef} />
     </div>
   );
 }

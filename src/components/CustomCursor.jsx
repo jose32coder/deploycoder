@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation"; // 👈 1. Importamos usePathname
 import gsap from "gsap";
 
 export function CustomCursor() {
@@ -8,6 +9,12 @@ export function CustomCursor() {
   const followerRef = useRef(null);
   const [isDesktop, setIsDesktop] = useState(false);
   const [cursorText, setCursorText] = useState("");
+  const pathname = usePathname(); // 👈 2. Obtenemos la ruta actual
+
+  // 🔄 3. Cada vez que cambies de página, reseteamos el cursor a su estado normal
+  useEffect(() => {
+    setCursorText("");
+  }, [pathname]);
 
   useEffect(() => {
     // 1. Detectar pantallas desktop con mouse preciso

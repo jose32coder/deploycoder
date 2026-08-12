@@ -64,7 +64,10 @@ export default function AllProjectsClient({ projects }) {
               Catálogo Completo
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tighter">
-              Todos los Proyectos
+              Todos los{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-200 to-zinc-500">
+                Proyectos
+              </span>
             </h1>
           </motion.div>
 
