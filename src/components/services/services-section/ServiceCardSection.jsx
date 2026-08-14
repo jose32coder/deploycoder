@@ -24,16 +24,20 @@ export const ServiceCardSection = ({ service, index, onVisible }) => {
       className="lg:sticky mb-8 sm:mb-12 last:mb-0 w-full"
     >
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, x: 0, y: 40 }}
+        whileInView={{ opacity: 1, x: 0, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{
+          duration: 0.7,
+          delay: index * 0.15,
+          ease: [0.16, 1, 0.3, 1],
+        }}
         className="group relative w-full rounded-3xl border border-white/10 bg-zinc-950/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-indigo-500/30"
       >
         {/* Gradient Glow */}
         <div className="absolute -top-24 -right-24 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/20 transition-all duration-700" />
 
-        {/* Cabecera Adaptativa (Soporta IDs cortos como "01" o textos largos como "custom-software") */}
+        {/* Cabecera Adaptativa */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 relative z-10">
           <span className="shrink-0 w-fit bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-widest rounded-full backdrop-blur-md">
             {service.tag}

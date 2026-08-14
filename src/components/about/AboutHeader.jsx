@@ -29,7 +29,7 @@ export function AboutHeader({ badge, title, subtitle }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-4xl sm:text-6xl font-bold tracking-tight max-w-3xl leading-[1.1]"
+          className="text-transparent bg-clip-text bg-linear-to-br from-white via-zinc-200 to-zinc-800 text-4xl sm:text-6xl font-bold tracking-tight max-w-3xl leading-[1.1]"
         >
           {title}
         </motion.h1>

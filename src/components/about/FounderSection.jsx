@@ -93,10 +93,9 @@ export function FoundersSection({ team = [] }) {
               variants={reveal}
               className="mt-6 text-4xl font-medium leading-[1.02] tracking-[-.045em] text-white sm:text-5xl lg:text-[3.5rem]"
             >
-              ¿Quienes conforman
-              <br />
+              El talento que impulsa{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-200 to-zinc-500">
-                Deploy?
+                Deploy.
               </span>
             </motion.h2>
 

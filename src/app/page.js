@@ -5,7 +5,6 @@ import StackSection from "@/components/StackSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/contact/ContactSection";
 import { ProjectsSection } from "@/components/projects/ProjectsSection";
-import { DeploySection } from "@/components/marquee/DeploySection";
 import { TeamSection } from "@/components/team/TeamSection";
 
 export default function Home() {
@@ -22,9 +21,7 @@ export default function Home() {
 
         <ProjectsSection />
         <CTASection />
-        <DeploySection>
-          <TeamSection />
-        </DeploySection>
+        <TeamSection />
         <ContactSection />
       </div>
     </main>

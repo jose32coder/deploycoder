@@ -101,7 +101,7 @@ export function AboutManifesto({ tagline, headline, description, pillars }) {
 
           <motion.h2
             variants={reveal}
-            className="mt-6 max-w-xl text-4xl font-medium leading-[1.02] tracking-[-.045em] text-white sm:text-5xl lg:text-[3.5rem]"
+            className="mt-6 max-w-xl text-4xl sm:text-5xl lg:text-[3.2rem] font-bold leading-[1.05] tracking-tight text-transparent bg-clip-text bg-linear-to-br from-white via-zinc-200 to-zinc-500"
           >
             {headline}
           </motion.h2>
