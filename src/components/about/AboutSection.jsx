@@ -4,7 +4,7 @@ import { aboutData } from "@/data/aboutData";
 import { AboutHeader } from "./AboutHeader";
 import { AboutBanner } from "./AboutBanner";
 import { AboutManifesto } from "./AboutManifesto";
-import { FounderCard } from "./FounderCard";
+import { FoundersSection } from "./FounderSection";
 
 export function AboutSection() {
   return (
@@ -16,7 +16,7 @@ export function AboutSection() {
       />
 
       {/* 2. 📝 CONTENIDO DEBAJO (Dentro del contenedor centrado) */}
-      <div className="w-full mx-auto px-4 sm:px-8 lg:px-16 pt-12 space-y-16">
+      <div className="w-full mx-auto px-4 sm:px-8 lg:px-16 pt-12">
         {/* Encabezado */}
         <AboutHeader
           badge={aboutData.header.badge}
@@ -33,22 +33,7 @@ export function AboutSection() {
         />
 
         {/* Tarjetas de Fundadores */}
-        <div className="space-y-8">
-          <div className="flex items-center justify-between">
-            <h3 className="text-xl font-medium text-white tracking-tight">
-              Fundadores
-            </h3>
-            <span className="text-xs font-mono text-gray-500">
-              // LEADERSHIP
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {aboutData.team.map((member) => (
-              <FounderCard key={member.id} member={member} />
-            ))}
-          </div>
-        </div>
+        <FoundersSection team={aboutData.team} />
       </div>
     </section>
   );

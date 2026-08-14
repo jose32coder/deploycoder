@@ -42,11 +42,11 @@ export default function ProjectDetailView({ project }) {
       <div className="w-full flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-white/5">
         {/* Izquierda: Volver */}
         <Link
-          href="/"
+          href="/proyectos"
           className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
         >
           <FiArrowLeft className="w-3.5 h-3.5 text-indigo-400" />
-          <span>Inicio</span>
+          <span>Proyectos</span>
         </Link>
 
         {/* Derecha: Selector de Modo de Vista */}

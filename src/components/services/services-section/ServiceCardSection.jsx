@@ -1,3 +1,5 @@
+// ServiceCardSection.jsx
+
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -5,7 +7,7 @@ import { motion, useInView } from "framer-motion";
 
 export const ServiceCardSection = ({ service, index, onVisible }) => {
   const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { margin: "-40% 0px -40% 0px" });
+  const isInView = useInView(cardRef, { margin: "-35% 0px -35% 0px" });
 
   useEffect(() => {
     if (isInView) {
@@ -13,46 +15,52 @@ export const ServiceCardSection = ({ service, index, onVisible }) => {
     }
   }, [isInView, index, onVisible]);
 
-  // Offset para que cada tarjeta se apile un poco más abajo en desktop
-  const topOffset = 110 + index * 15;
+  const topOffset = 120 + index * 20;
 
   return (
     <div
       ref={cardRef}
       style={{ top: `${topOffset}px` }}
-      className="sticky mb-8 last:mb-0 w-full"
+      className="lg:sticky mb-8 sm:mb-12 last:mb-0 w-full"
     >
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className={`relative w-full rounded-3xl border border-white/10 bg-zinc-950/90 backdrop-blur-xl p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl transition-all duration-300 hover:border-white/20 bg-gradient-to-br ${service.accentColor}`}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="group relative w-full rounded-3xl border border-white/10 bg-zinc-950/85 backdrop-blur-2xl p-5 sm:p-8 lg:p-10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-indigo-500/30"
       >
-        {/* Cabecera de la card */}
-        <div className="flex justify-between items-start gap-4 mb-8">
-          <span className="bg-zinc-900/80 border border-zinc-800 text-zinc-300 px-3.5 py-1.5 text-xs font-mono uppercase tracking-widest rounded-full">
+        {/* Gradient Glow */}
+        <div className="absolute -top-24 -right-24 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/20 transition-all duration-700" />
+
+        {/* Cabecera Adaptativa (Soporta IDs cortos como "01" o textos largos como "custom-software") */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 relative z-10">
+          <span className="shrink-0 w-fit bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-widest rounded-full backdrop-blur-md">
             {service.tag}
           </span>
-          <span className="text-4xl sm:text-6xl font-mono font-bold text-zinc-800 select-none">
+
+          <span className="text-lg sm:text-2xl lg:text-4xl font-mono font-bold text-zinc-800 group-hover:text-zinc-700 transition-colors break-all leading-tight sm:text-right">
             {service.id}
           </span>
         </div>
 
         {/* Título y Descripción */}
-        <h3 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+        <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white mb-3 sm:mb-4 relative z-10">
           {service.title}
         </h3>
-        <p className="text-zinc-400 text-sm sm:text-base font-light leading-relaxed max-w-2xl mb-8">
+        <p className="text-zinc-400 text-xs sm:text-base font-light leading-relaxed max-w-2xl mb-6 sm:mb-8 relative z-10">
           {service.description}
         </p>
 
         {/* Grilla de Características */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-5 sm:pt-6 border-t border-white/10 relative z-10">
           {service?.features?.map((feat, i) => (
-            <div key={i} className="flex items-center gap-2.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-              <span className="text-xs sm:text-sm text-zinc-300 font-medium">
+            <div
+              key={i}
+              className="flex items-center gap-2.5 p-1.5 sm:p-2 rounded-lg transition-colors hover:bg-white/5"
+            >
+              <span className="shrink-0 h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
+              <span className="text-xs sm:text-sm text-zinc-300 font-normal leading-snug">
                 {feat}
               </span>
             </div>

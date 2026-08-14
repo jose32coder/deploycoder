@@ -34,23 +34,9 @@ const cardVariants = {
 
 export default function AllProjectsClient({ projects }) {
   return (
-    <main className="min-h-screen bg-[#09090b] text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <main className="min-h-screen bg-[#09090b] text-white pt-32 pb-24 px-4 sm:px-6 lg:pt-48 lg:px-8 overflow-hidden">
       <div className="w-auto mx-auto">
         {/* Botón de retorno (Entra suavemente desde la izquierda) */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={transitionSettings}
-          className="mb-8"
-        >
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
-          >
-            <FiArrowLeft className="w-3.5 h-3.5 text-indigo-400" />
-            <span>Inicio</span>
-          </Link>
-        </motion.div>
 
         {/* Encabezado del catálogo */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 pb-8 border-b border-white/10 gap-6">
