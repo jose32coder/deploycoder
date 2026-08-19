@@ -79,53 +79,45 @@ export function FoundersSection({ team = [] }) {
 
       <div className="mx-auto px-6 lg:px-8">
         {/* Header con estructura proporcional */}
-        <div className="mb-20 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-end">
+        <header className="mb-12 sm:mb-20 pb-8 sm:pb-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 sm:gap-10">
           {/* Izquierda */}
-          <div className="lg:col-span-7">
-            <motion.div variants={reveal} className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 shadow-[0_0_12px_rgba(99,102,241,.8)]" />
-              <span className="font-mono text-[10px] uppercase tracking-[.25em] text-white/35">
+          <div>
+            <motion.div
+              variants={reveal}
+              className="flex items-center gap-2 mb-3"
+            >
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-indigo-400">
                 // Nosotros
               </span>
             </motion.div>
 
             <motion.h2
               variants={reveal}
-              className="mt-6 text-4xl font-medium leading-[1.02] tracking-[-.045em] text-white sm:text-5xl lg:text-[3.5rem]"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none"
             >
               El talento que impulsa{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-200 to-zinc-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-b from-white via-zinc-100 to-zinc-500">
                 Deploy.
               </span>
             </motion.h2>
-
-            <motion.div
-              variants={reveal}
-              className="mt-8 flex items-center gap-3 text-white/20"
-            >
-              <span className="h-px w-10 bg-white/10" />
-              <span className="font-mono text-[9px] uppercase tracking-[.25em]">
-                Nuestro equipo
-              </span>
-            </motion.div>
           </div>
 
           {/* Derecha */}
           <motion.div
             variants={reveal}
-            className="flex flex-col gap-4 lg:col-span-5 lg:pb-2"
+            className="flex flex-col gap-3 max-w-md"
           >
-            <p className="text-base leading-7 text-white/50">
+            <p className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
               Estrategia, producto y arquitectura trabajando juntos para
               construir sistemas digitales que puedan escalar.
             </p>
 
-            <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-white/20">
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
               <FiArrowDown size={12} />
-              Scroll para explorar
+              <span>Scroll para explorar</span>
             </div>
           </motion.div>
-        </div>
+        </header>
 
         {/* Tarjetas de fundadores animadas en cascada */}
         <motion.div variants={stagger} className="space-y-24 sm:space-y-36">

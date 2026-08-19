@@ -8,7 +8,7 @@ import { FoundersSection } from "./FounderSection";
 
 export function AboutSection() {
   return (
-    <section className="relative w-full bg-[#09090b] text-white pb-20 overflow-hidden">
+    <main className="relative w-full bg-[#09090b] text-white pb-20 overflow-hidden">
       {/* 1. 🚀 BANNER FULL-WIDTH (Ocupa todo el ancho sin límites) */}
       <AboutBanner
         imageUrl={aboutData.companyImage.url}
@@ -35,6 +35,6 @@ export function AboutSection() {
         {/* Tarjetas de Fundadores */}
         <FoundersSection team={aboutData.team} />
       </div>
-    </section>
+    </main>
   );
 }
